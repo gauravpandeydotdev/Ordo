@@ -7,7 +7,8 @@ var config = require('../services/configParser');
 router.get('/', async function (req, res, next) {
     res.render('index', {
         version: await ytdlpService.getYtdlpVersion(),
-        config: config.getConfig()
+        config: config.getConfig(),
+        envConfig: config.getEnvConfig()
     });
 });
 

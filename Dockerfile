@@ -10,7 +10,8 @@ RUN pip install yt-dlp==2022.3.8.2
 RUN apk add ffmpeg
 
 WORKDIR /src
-COPY package*.json /
+COPY package*.json /src
+
 EXPOSE 3000
 
 FROM base as production

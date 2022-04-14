@@ -6,9 +6,9 @@ const auth = require('../services/auth');
 const ytdlpService = require('../services/ytdlpService');
 const config = require('../services/configParser');
 
-router.get('/', async function(req, res, next) {
+router.get('/', async function(req, res) {
   res.render('index', {
-    title: 'PlexTube',
+    title: 'YourTube',
     version: await ytdlpService.getYtdlpVersion(),
     config: config.getConfig(),
   });
@@ -29,21 +29,21 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 
 router.get('/home', auth.isAuthorized, function(req, res) {
   res.render('home', {
-    title: 'Home | PlexTube',
+    title: 'Home | YourTube',
     name: req.user.displayName,
   });
 });
 
 router.get('/error', function(req, res) {
   res.render('error', {
-    title: 'Error | PlexTube',
+    title: 'Error | YourTube',
     error: 'Oops! Something broke',
   });
 });
 
 router.get('/logout', function(req, res) {
   if (req.session) {
-    req.session.destroy((err) => {
+    req.session.destroy(() => {
       res.redirect('/');
     });
   }

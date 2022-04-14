@@ -1,17 +1,52 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
+const auth = require('../services/auth');
 const ytdlpService = require('../services/ytdlpService');
 const config = require('../services/configParser');
 
-/* GET home page. */
 router.get('/', async function(req, res, next) {
   res.render('index', {
     title: 'PlexTube',
     version: await ytdlpService.getYtdlpVersion(),
     config: config.getConfig(),
-    envConfig: config.getEnvConfig(),
   });
+});
+
+router.get('/auth/google', passport.authenticate('google', {
+  scope: [
+    'profile',
+  ],
+  accessType: 'offline',
+  prompt: 'consent',
+}, null));
+
+router.get('/auth/google/callback', passport.authenticate('google', {
+  successRedirect: '/home',
+  failureRedirect: '/error',
+}, null));
+
+router.get('/home', auth.isAuthorized, function(req, res) {
+  res.render('home', {
+    title: 'Home | PlexTube',
+    name: req.user.displayName,
+  });
+});
+
+router.get('/error', function(req, res) {
+  res.render('error', {
+    title: 'Error | PlexTube',
+    error: 'Oops! Something broke',
+  });
+});
+
+router.get('/logout', function(req, res) {
+  if (req.session) {
+    req.session.destroy((err) => {
+      res.redirect('/');
+    });
+  }
 });
 
 module.exports = router;

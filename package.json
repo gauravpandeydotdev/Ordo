@@ -7,11 +7,14 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-session": "~1.17.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "yt-dlp-wrap": "~2.3.11",
     "config": "~3.3.7",
     "js-yaml": "~4.1.0",
-    "dotenv": "~16.0.0"
+    "dotenv": "~16.0.0",
+    "passport": "~0.5.2",
+    "passport-google-oauth20": "~2.0.0"
   }
 }

@@ -8,7 +8,7 @@ const config = require('../services/configParser');
 
 router.get('/', async function(req, res) {
   res.render('index', {
-    title: 'YourTube',
+    title: 'Ordo',
     version: await ytdlpService.getYtdlpVersion(),
     config: config.getConfig(),
   });
@@ -29,14 +29,14 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 
 router.get('/home', auth.isAuthorized, function(req, res) {
   res.render('home', {
-    title: 'Home | YourTube',
+    title: 'Home | Ordo',
     name: req.user.displayName,
   });
 });
 
 router.get('/error', function(req, res) {
   res.render('error', {
-    title: 'Error | YourTube',
+    title: 'Error | Ordo',
     error: 'Oops! Something broke',
   });
 });

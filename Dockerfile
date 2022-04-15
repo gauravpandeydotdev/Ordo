@@ -24,4 +24,5 @@ FROM base as dev
 ENV NODE_ENV=development
 RUN npm install -g nodemon && npm install
 COPY . /
-CMD ["nodemon", "bin/www"]
+EXPOSE 9229
+CMD ["nodemon", "--inspect=0.0.0.0:9229", "bin/www"]

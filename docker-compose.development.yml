@@ -7,5 +7,6 @@ services:
       - .:/src
     ports:
       - "3000:3000"
+      - "9229:9229"
     environment:
-      DEBUG: YourTube:*
+      DEBUG: yourtube:*

@@ -1,14 +1,5 @@
 FROM node:14-alpine as base
 
-RUN apk add python3-dev
-RUN apk add py3-pip
-
-RUN apk add libc-dev
-RUN apk add g++
-RUN pip install yt-dlp==2022.3.8.2
-
-RUN apk add ffmpeg
-
 WORKDIR /src
 COPY package*.json /src
 

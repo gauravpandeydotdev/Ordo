@@ -3,13 +3,11 @@ const router = express.Router();
 const passport = require('passport');
 
 const auth = require('../services/auth');
-const ytdlpService = require('../services/ytdlpService');
-const config = require('../services/configParser');
+const config = require('../services/config');
 
-router.get('/', async function(req, res) {
+router.get('/', function(req, res) {
   res.render('index', {
     title: 'Ordo',
-    version: await ytdlpService.getYtdlpVersion(),
     config: config.getConfig(),
   });
 });

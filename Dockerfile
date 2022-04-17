@@ -9,11 +9,11 @@ FROM base as production
 ENV NODE_ENV=production
 RUN npm ci
 COPY . /
-CMD ["node", "bin/www"]
+CMD ["npm", "run", "prod"]
 
 FROM base as dev
 ENV NODE_ENV=development
-RUN npm install -g nodemon && npm install
+RUN npm install
 COPY . /
 EXPOSE 9229
-CMD ["nodemon", "--inspect=0.0.0.0:9229", "bin/www"]
+CMD ["npm", "run", "dev"]

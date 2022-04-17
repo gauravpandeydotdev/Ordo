@@ -5,7 +5,7 @@
   "scripts": {
     "prod": "npx run-p prod:*",
     "prod:build-css": "npx tailwindcss -i source.css -o public/stylesheets/style.css --minify",
-    "prod:start": "npm node ./bin/www",
+    "prod:start": "node ./bin/www",
     "dev": "npx run-p dev:*",
     "dev:build-css": "npx tailwindcss -i source.css -o public/stylesheets/style.css --watch",
     "dev:start": "nodemon --inspect=0.0.0.0:9229 ./bin/www"
@@ -25,12 +25,12 @@
     "http-errors": "~1.6.3",
     "js-yaml": "~4.1.0",
     "morgan": "~1.9.1",
+    "npm-run-all": "~4.1.5",
     "passport": "~0.5.2",
     "passport-google-oauth20": "~2.0.0"
   },
   "devDependencies": {
     "nodemon": "~2.0.15",
-    "npm-run-all": "~4.1.5",
     "tailwindcss": "~3.0.24"
   }
 }

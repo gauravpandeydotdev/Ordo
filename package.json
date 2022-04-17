@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prod": "npx run-p prod:*",
     "prod:build-css": "npx tailwindcss -i source.css -o public/stylesheets/style.css --minify",
     "prod:start": "npm node ./bin/www",
+    "dev": "npx run-p dev:*",
     "dev:build-css": "npx tailwindcss -i source.css -o public/stylesheets/style.css --watch",
     "dev:start": "nodemon --inspect=0.0.0.0:9229 ./bin/www"
   },

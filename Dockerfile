@@ -9,11 +9,11 @@ FROM base as production
 ENV NODE_ENV=production
 RUN npm ci
 COPY . /
-CMD ["npx", "run-p", "prod:*"]
+CMD ["npm", "run", "prod"]
 
 FROM base as dev
 ENV NODE_ENV=development
 RUN npm install
 COPY . /
 EXPOSE 9229
-CMD ["npx", "npm-run-all", "dev:*", "--parallel"]
+CMD ["npm", "run", "dev"]

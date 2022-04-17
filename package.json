@@ -2,18 +2,33 @@
   "name": "ordo",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "prod:build-css": "npx tailwindcss -i source.css -o public/stylesheets/style.css --minify",
+    "prod:start": "npm node ./bin/www",
+    "dev:build-css": "npx tailwindcss -i source.css -o public/stylesheets/style.css --watch",
+    "dev:start": "nodemon --inspect=0.0.0.0:9229 ./bin/www"
+  },
+  "nodemonConfig": {
+    "verbose": false,
+    "ext": "js, ejs, css, json"
+  },
   "dependencies": {
+    "config": "~3.3.7",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "~16.0.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "~1.17.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "config": "~3.3.7",
     "js-yaml": "~4.1.0",
-    "dotenv": "~16.0.0",
+    "morgan": "~1.9.1",
     "passport": "~0.5.2",
     "passport-google-oauth20": "~2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "~2.0.15",
+    "npm-run-all": "~4.1.5",
+    "tailwindcss": "~3.0.24"
   }
 }

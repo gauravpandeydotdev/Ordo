@@ -5,8 +5,13 @@
         <link rel='stylesheet' href='/stylesheets/style.css'/>
     </head>
     <body>
-        <h1><%= title; %></h1>
-        <h2>Read from config: <%= config; %></h2>
-        <h2><a class="text-blue-400" href="/auth/google">Authenticate with Google</a></h2>
+        <section id="main-section" class="min-h-screen flex bg-yellow-400">
+            <section id="splash-screen" class="hidden lg:flex w-2/3 bg-red-400">
+            </section>
+            <section id="login-screen" class="grow min-w-max bg-blue-400 flex flex-col justify-center items-center">
+                <div class="text-3xl px-20 py-4">Connect with Youtube</div>
+                <a class="text-2xl text-purple-800 underline" href="/auth/google">Login</a>
+            </section>
+        </section>
     </body>
 </html>
